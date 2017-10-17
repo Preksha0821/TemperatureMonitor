@@ -12,13 +12,18 @@ export class AddTemperatureComponent {
   count = 0;
   exceedLimit = false;
   exceedLimitText = '';
+  currentValues=false;
   constructor(public temperatureMonitorService: TemperatureMonitorService) {
+  }
+  tempList(){
+    return this.temperatureMonitorService.temperature_list;
   }
 
   recordTemperature(temp: number): void {
     this.count++;
     if (this.count < 9) {
       this.temperatureMonitorService.recordTemperature(temp);
+      this.currentValues=true;
       //this.temperature = null;
     } else {
       this.exceedLimitText = 'You have exceeded your limit';

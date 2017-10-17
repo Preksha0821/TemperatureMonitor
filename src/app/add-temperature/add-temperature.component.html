@@ -22,9 +22,10 @@
         <div [hidden]="!temperature_value.errors.required">Temperature is Required</div>
       </div>
     </div>
-    <button type="submit" class="btn btn-success" [disabled]="!temperatureForm.valid" (click)="recordTemperature(temperature);temperatureForm.reset()">Add</button>
+        <button type="submit" class="btn btn-success" [disabled]="!temperatureForm.valid" (click)="recordTemperature(temperature);temperatureForm.reset()">Add</button>
+    <hr/>
+    <div [hidden]="!currentValues"> Current Values of temperature are : {{tempList() | json}}</div>
   </form>
-
 </div>
 <hr/>
 </div>
