@@ -1,0 +1,10 @@
+<div class="container">
+  <div>
+    <button type="button" class="btn btn-info" (click)="getCurrentMedian()" [disabled]="tempListLength() ==0">Get Median Temperature</button>
+  </div>
+  <hr/>
+  <div [hidden]="!getMedian">
+    <h4>Current Median of {{tempList() | json}} is {{currentMedian}} </h4>
+  </div>
+</div>
+<hr>
