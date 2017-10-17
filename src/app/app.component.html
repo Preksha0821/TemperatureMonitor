@@ -1,49 +1,9 @@
-<div class="container">
-  <div>
-    Collection of temperatures length : {{tempListLength()}}
-  </div>
-  <hr/>
-  <p>
-    <ngb-progressbar type="info" [value]="tempListLength()" [max]="8"> Collection of temperatures: <b>
-      {{tempListLength()}} of 8</b>...
-    </ngb-progressbar>
-  </p>
-  <hr/>
+<add-temperature></add-temperature>
+<progress-bar></progress-bar>
+<get-median></get-median>
 
-  <h2>Temperature Monitor</h2>
-  <hr/>
-  <div [hidden]="!exceedLimit">
-    <h2>{{exceedLimitText}}</h2>
-  </div>
-  <div [hidden]="exceedLimit">
-    <form #temperatureForm="ngForm">
-      <div class="form-group">
-        <label for="temperature_value">Add Temperature:</label>
-        <input type="number"
-               [(ngModel)]="temperature"
-               class="form-control"
-               id="temperature_value"
-               name="temperature_value"
-               placeholder="Add Temperature"
-               #temperature_value = "ngModel"
-               required>
-        <div  class="alert alert-danger " *ngIf="temperature_value.errors && (temperature_value.dirty || temperature_value.touched)">
-          <div [hidden]="!temperature_value.errors.required">Temperature is Required</div>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-success" [disabled]="!temperatureForm.valid" (click)="recordTemperature(temperature);temperatureForm.reset()">Add</button>
-    </form>
 
-  </div>
-  <hr/>
-  <div>
-    <div>
-      <button type="button" class="btn btn-info" (click)="getCurrentMedian()" [disabled]="tempListLength() ==0">Get Median Temperature</button>
-    </div>
 
-    <div [hidden]="!getMedian">
-      <h2>Current Median of {{tempList() | json}} is {{currentMedian}} </h2>
-    </div>
-  </div>
-  <hr>
-</div>
+
+
+
