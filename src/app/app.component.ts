@@ -36,7 +36,7 @@ export class AppComponent {
     this.count++;
     if (this.count < 9) {
       this.temperatureMonitorService.recordTemperature(temp);
-      this.temperature = null;
+      //this.temperature = null;
     } else {
       this.exceedLimitText = 'you have exceed your limits';
       this.exceedLimit = true;
