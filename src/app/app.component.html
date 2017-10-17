@@ -4,20 +4,32 @@
     Collection of temperatures length : {{tempListLength()}}
   </div>
   <hr/>
-  <p><ngb-progressbar type="info" [value]="tempListLength()" [max]="8"> Collection of temperatures: <b> {{tempListLength()}} of 8</b>...</ngb-progressbar></p>
+  <p>
+    <ngb-progressbar type="info" [value]="tempListLength()" [max]="8"> Collection of temperatures: <b>
+      {{tempListLength()}} of 8</b>...
+    </ngb-progressbar>
+  </p>
   <hr/>
 
-  <h1>Temperature Monitor</h1>
-
+  <h2>Temperature Monitor</h2>
+  <hr/>
   <div [hidden]="!exceedLimit">
     <h2>{{exceedLimitText}}</h2>
   </div>
   <div [hidden]="exceedLimit">
-    <form>
-      <label for="temperature">Add Temperature:</label>
-      <input type="number" name="temperature" id="temperature" [(ngModel)]="temperature">
-      <button (click)="recordTemperature(temperature)">Add</button>
+    <form (submit)="recordTemperature(temperature)">
+      <div class="form-group">
+        <label for="temperature">Add Temperature:</label>
+        <input type="number"
+               [(ngModel)]="temperature"
+               class="form-control"
+               id="temperature"
+               name="temperature"
+               placeholder="Add Temperature">
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
     </form>
+
   </div>
   <hr/>
   <div>
@@ -26,7 +38,7 @@
     </div>
 
     <div [hidden]="!getMedian">
-        <h2>Current Median of {{tempList() | json}} is {{currentMedian}} </h2>
+      <h2>Current Median of {{tempList() | json}} is {{currentMedian}} </h2>
     </div>
   </div>
   <hr>
