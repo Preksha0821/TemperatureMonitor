@@ -12,7 +12,7 @@ export class AppComponent {
   exceedLimit = false;
   exceedLimitText = '';
   currentMedian = null;
-
+  getMedian = false;
   constructor(public temperatureMonitorService: TemperatureMonitorService) {
   }
 
@@ -20,10 +20,15 @@ export class AppComponent {
     return this.temperatureMonitorService.temperature_list.length;
   }
 
+  tempList(){
+    return this.temperatureMonitorService.temperature_list;
+  }
+
   getCurrentMedian() {
     let sortedTempList = this.temperatureMonitorService.temperature_list.sort((a, b) => a - b);
 
     this.currentMedian = (sortedTempList[(sortedTempList.length - 1) >> 1] + sortedTempList[sortedTempList.length >> 1]) / 2;
+    this.getMedian=true;
     console.log(sortedTempList, this.currentMedian);
   }
 

@@ -22,12 +22,11 @@
   <hr/>
   <div>
     <div>
-      <button (click)="getCurrentMedian()">Get Median Temperature</button>
+      <button (click)="getCurrentMedian()" [disabled]="tempListLength() ==0">Get Median Temperature</button>
     </div>
-    <div>
-      Current Median:
-      <!-- display current media here-->
-      {{currentMedian}}
+
+    <div [hidden]="!getMedian">
+        <h2>Current Median of {{tempList() | json}} is {{currentMedian}} </h2>
     </div>
   </div>
   <hr>
