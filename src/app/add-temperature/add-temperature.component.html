@@ -1,12 +1,16 @@
 <div class="container">
+  <!--Title display-->
 <h2>Temperature Monitor</h2>
 <hr/>
 </div>
+<!--Exceed limit message when the temperature goes above 8-->
 <div class="container">
 <div [hidden]="!exceedLimit">
   <h3>{{exceedLimitText}}</h3>
 </div>
 <div [hidden]="exceedLimit">
+
+  <!--Add temperature form with validation-->
   <form #temperatureForm="ngForm">
     <div class="form-group">
       <label for="temperature_value">Add Temperature:</label>
@@ -24,6 +28,7 @@
     </div>
         <button type="submit" class="btn btn-success" [disabled]="!temperatureForm.valid" (click)="recordTemperature(temperature);temperatureForm.reset()">Add</button>
     <hr/>
+    <!--List for the entered values-->
     <div [hidden]="!currentValues"> Current Values of temperature are : {{tempList() | json}}</div>
   </form>
 </div>

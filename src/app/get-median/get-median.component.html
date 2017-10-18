@@ -1,8 +1,10 @@
 <div class="container">
+  <!--Button to calculate median-->
   <div>
     <button type="button" class="btn btn-info" (click)="getCurrentMedian()" [disabled]="tempListLength() ==0">Get Median Temperature</button>
   </div>
   <hr/>
+  <!--Display temperature list with the current median-->
   <div [hidden]="!getMedian">
     <div>Current Median of {{tempList() | json}} is {{currentMedian}} </div>
   </div>

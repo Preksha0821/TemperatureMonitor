@@ -1,3 +1,4 @@
+//imports required
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -8,6 +9,7 @@ import { AddTemperatureComponent } from './add-temperature/add-temperature.compo
 import { GetMedianComponent } from './get-median/get-median.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
+//ngmodule decorator that has all declarations for every component,imports, providers
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,5 +25,6 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
   providers: [TemperatureMonitorService],
   bootstrap: [AppComponent]
 })
+//main class
 export class AppModule {
 }

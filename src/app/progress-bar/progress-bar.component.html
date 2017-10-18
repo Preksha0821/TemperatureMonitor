@@ -1,8 +1,10 @@
 <div class="container">
+  <!--Display temperature list length-->
   <div>
     Collection of temperatures length : {{tempListLength()}}
   </div>
   <hr/>
+  <!--Progress bar for temperature-->
   <p>
     <ngb-progressbar type="info" [value]="tempListLength()" [max]="8"><b>
       {{tempListLength()}} of 8</b>
